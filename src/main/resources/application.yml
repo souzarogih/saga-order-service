@@ -1,0 +1,30 @@
+spring:
+  data:
+    mongodb:
+      database: admin
+#      host: localhost
+#      port: 27016
+#      password: 123456@
+#      username: admin
+      uri: ${MONGO_DB_URI:mongodb://admin:123456@localhost:27016}
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
+    topic:
+      start-saga: start-saga
+      notify-ending: notify-ending
+    consumer:
+      group-id: order-group
+      auto-offset-reset: latest
+
+  application:
+    name: saga-order-service
+
+server:
+  port: 8090
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
