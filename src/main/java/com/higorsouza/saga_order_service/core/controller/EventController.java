@@ -21,11 +21,13 @@ public class EventController {
 
     @GetMapping
     public Event findByFilters(EventFilters eventFilters) {
+        log.info("findByFilters: {}", eventFilters);
         return eventService.findByFilters(eventFilters);
     }
 
     @GetMapping("/all")
     public List<Event> findAll() {
+        log.info("findAll");
         return eventService.findAll();
     }
 }
